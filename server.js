@@ -1,6 +1,10 @@
 var express = require('express');
 var app = express();
 
+app.get('/', function(req, res) {
+   res.send("Use this miniservice to get the unix and natural date of a given unix or natural time stamp, sent as a single parameter.") 
+});
+
 app.get('/:timestamp', function(req,res) {
     // Make a date.
     var time = new Date(req.params.timestamp);
