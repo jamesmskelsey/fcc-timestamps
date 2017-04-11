@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+app.set('port', (process.env.PORT || 5000));
+
 app.get('/', function(req, res) {
    res.send("Use this miniservice to get the unix and natural date of a given unix or natural time stamp, sent as a single parameter.") 
 });
@@ -28,6 +30,6 @@ app.get('/:timestamp', function(req,res) {
     res.send(JSON.stringify(responseDates));
 });
 
-app.listen(8080, function(){
+app.listen(app.get('port'), function(){
     console.log("Listening on 8080.");
 });
